@@ -1,0 +1,16 @@
+body{
+    background-image: url(../Project1/images/dogebg.jpeg);
+    background-size:100%;
+}
+
+
+header {
+    font-size: 46px;
+    text-align: center;
+    font:900;
+    color: forestgreen;
+}
+
+body h1{
+    color: forestgreen;
+}
