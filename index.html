@@ -11,24 +11,21 @@
     <body>
         <header>Crypto Database</header>
             <h1>Search crypto database</h1>
-                <form action="" method="get" class="search">
-                <div class="search">
+                <form action="" method="get" class="search" id="crypto-search">
+                 <div class="search">
                     <label for="crypto">Enter cryptocurrency: </label>
                     <input type="text" name="crypto search" id="cryptoQuery" placeholder = "Ex: BTC or bitcoin" required>
-                </div>
-                <div class="form-example">
+                 </div>
+                 <div class="form-example">
                     <input type="submit" value="Search">
-                </div>
-                <div result id = "searchResult">Result:
-                    <ul>
-                        <li>
-
-                        </li>
-                    </ul>
+                 </div>
+                 <div result id = "searchResult">Result:
                 
-                </div>
-      </form>
+                 </div>            
+                </form>
 
+            <h1 id="cryptoList"></h1>
+                
       
     
         <script src = "./index.js"></script>
