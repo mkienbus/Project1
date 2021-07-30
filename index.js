@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
 //DOM grabs
 let searchForm = document.getElementById("crypto-search");
-let result = document.querySelector("body#searchResult");
+let result = document.getElementById("resultPlaceholder");
 let cryptoList = document.getElementById("cryptoList");
 let input = document.getElementById("cryptoQuery");
 
@@ -15,12 +15,11 @@ function displayAll(){
         .then(response => response.json())
         .then(function(data){
             //console.log(data.slice(0, 100))
-            //for each iteration?
             let sliced = data.slice(0, 100)
             sliced.forEach((d) => {
                 cryptoList.innerHTML += `
                     <li>
-                        ${d.name}
+                      Symbol: ${d.symbol}, <br> Name: ${d.name}
                     </li>
                 `
                 //console.log(d.name)
@@ -30,7 +29,10 @@ function displayAll(){
 }
 
 
-//crypto search
+//crypto search - search values have to be exact ex:
+// btc-bitcoin for it to work
+// add a filter or specific instructions, or include full search values
+// in the full crypto list
 searchForm.addEventListener("submit", displayCrypto)
 
 function displayCrypto(e){
@@ -38,15 +40,22 @@ function displayCrypto(e){
     fetch(`https://api.coinpaprika.com/v1/coins/${input.value}`)
         .then(response => response.json())
         .then(function(data){
-            // result.innerHTML = `
-            //     <ul>
-            //         <li>
-            //             ${data}
-            //         </li>
-            //     </ul>
-            //     `
+            result.innerHTML = `
+                <li>
+                    ${data.name}
+                    <br>
+                    Description: ${data.description}
+                    <br>
+                    Click <span id = "link"> here </span> ${data.whitepaper.link} for more information: 
+                </li>
+                `
             console.log(data)
         })
 
     input.value = "";
 }
+
+let el = document.getElementById("link");
+el.addEventListener("click", function(){
+    
+});
