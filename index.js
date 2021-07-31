@@ -14,7 +14,7 @@ function displayAll(){
     fetch(`https://api.coinpaprika.com/v1/coins`)
         .then(response => response.json())
         .then(function(data){
-            //console.log(data.slice(0, 100))
+            //console.log(data.slice(0, 100)), limited from size of of about 6100
             let sliced = data.slice(0, 100)
             sliced.forEach((d) => {
                 cryptoList.innerHTML += `
@@ -22,17 +22,12 @@ function displayAll(){
                         Name: ${d.name}, <br>Symbol: ${d.symbol}
                     </li>
                 `
-                //console.log(d.name)
             })
             
         }) 
 }
 
 
-//crypto search - search values have to be exact ex:
-// btc-bitcoin for it to work
-// add a filter or specific instructions, or include full search values
-// in the full crypto list
 searchForm.addEventListener("submit", displayCrypto)
 
 function displayCrypto(e){
