@@ -19,7 +19,7 @@ function displayAll(){
             sliced.forEach((d) => {
                 cryptoList.innerHTML += `
                     <li>
-                      Symbol: ${d.symbol}, <br> Name: ${d.name}
+                        Name: ${d.name}, <br>Symbol: ${d.symbol}
                     </li>
                 `
                 //console.log(d.name)
@@ -46,16 +46,17 @@ function displayCrypto(e){
                     <br>
                     Description: ${data.description}
                     <br>
-                    Click <span id = "link"> here </span> ${data.whitepaper.link} for more information: 
+                    Click <span id = "link"> here </span> for more information: 
                 </li>
                 `
-            console.log(data)
+                    console.log(data)
+                let el = document.getElementById("link");
+                el.addEventListener("click", function(){
+                    location.href = `${data.whitepaper.link}`;
+            });
         })
 
     input.value = "";
 }
 
-let el = document.getElementById("link");
-el.addEventListener("click", function(){
-    
-});
+
